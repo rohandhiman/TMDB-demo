@@ -1,0 +1,67 @@
+<!-- REGISTER PAGE -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register Page</title>
+
+  <link rel="stylesheet" href="/styles/form-styles.css" />
+  <link rel="icon" type="image/x-icon" href="/images/favicon.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+  <style>
+    #passwd-match-msg1, #passwd-match-msg2 {
+      display: block; /*May have to change in the future.*/
+      border: none;
+      outline: none;
+      margin-top: -20px;
+      margin-left: 16px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="form-container">
+    <form action="https://www.w3schools.com/action_page.php" id="register" name="register" autocomplete="off">
+      <p class="user-icon"><i class="fa fa-fw fa-user-plus"></i></p>
+      <br />
+
+      <!-- Username input -->
+      <label for="r_username">UserName : </label><br />
+      
+      <input type="text" id="r_username" name="username" placeholder="Rohan" /><br /><br />  
+      
+      <!-- password input 1 -->
+      <label for="r_password1">Enter Password</label><br />
+
+      <input type="password" id="r_password1" name="password1" placeholder="- - - - - - - - " 
+      oninput="check_passwd('length_secure')" />
+      <br /><br />
+      <small id="passwd-match-msg1"></small>
+      <br>
+      
+      <!-- password input 2 -->
+      <label for="r_password2">Re-Enter Password</label><br />
+
+      <input type="password" id="r_password2" name="password2" placeholder="- - - - - - - - " 
+       oninput="check_passwd('verify_passwords')" />
+      <br /><br />
+      <small id="passwd-match-msg2"></small>
+      <br>
+
+      
+      <input id="btn-register" type="button" onclick="document.location='/index.html'" value="Already a User!" />
+
+      <!-- input submit -->
+      <input onclick="addData()" id="btn-register" type="button" value="REGISTER" />
+    </form>
+  </div>
+
+  <!-- <p id="output"></p> -->
+  <script src="/js/form_sanitization.js"></script>
+  <script src="/js/register_submit.js"></script>
+</body>
+</html>

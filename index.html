@@ -1,0 +1,57 @@
+<!-- LOGIN PAGE -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="/styles/form-styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<body>
+  <div class="form-container">
+    <form action="" id="login" name="login" autocomplete="off" >
+      <p class="user-icon"><i class="fa fa-fw fa-user"></i></p>
+      <label for="username">UserName:</label><br />
+      <input type="text" id="username" name="username" placeholder="Rohan" autofocus /><br /><br />
+      
+      <label for="password">Password:</label><br />
+      <input type="password" id="password" name="password" placeholder="X X X X X X X"><br /><br />
+      
+      <label id="checkbox" for="checkbox">Remember me : </label>
+      <input type="checkbox" id="session_span" value="remember"><br /><br>
+      
+      <input id="btn-forgot" type="button" value="FORGOT PASSWORD?" />
+
+      <input id="btn-register" type="button" onclick="document.location='/register.html'" value="New User!" />
+
+      <input id="btn-login" type="button" value="LOGIN" 
+       onclick="auth()" />
+
+    </form>
+  </div>
+
+  <!-- <script src="/js/login_submit.js"></script> -->
+  <script src="/js/register_submit.js"></script>
+
+  <script>
+    function auth() {
+      localStorage.setItem("session","false");
+      let input_user = document.getElementById('username');
+      let input_password = document.getElementById('password');
+      let remember = document.getElementById('session_span');
+
+      db.transaction("cred").objectStore("cred").get(`${input_user.value}`).onsuccess = (event) => {
+
+        if(input_user.value == event.target.result.username && input_password.value == event.target.result.password) {
+          alert("Loging In");
+          localStorage.setItem("session", "true");
+          document.location = '/session.html';
+          }
+      }
+    }
+  </script>
+</body>
+</html>

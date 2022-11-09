@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Best place to find 'MOVIES' and their 'Ratings'.</title>
+    <meta name="keywords" content="movies, rating, 'best movies', 'latest movies'," /> 
+    <meta name="description" content="IMDB is the best place to find movies and show and find their ratings, based on story telling and overall movie plot." />
+    <meta name="author" content="Rohan Dhiman" />
+    <base href="" target="" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/styles/session.css">
+    <style>
+      
+    </style>
+</head>
+
+<body>
+  <div class="flexbox-container">
+    <button class="menu-btn home"><i class="fa fa-fw fa-home"></i> HOME</button>
+    <button class="menu-btn"><i class="fa fa-fw fa-phone"></i> CONTACT US</button>
+    <button class="menu-btn"><i class="fa fa-fw fa-question-circle"></i> ABOUT US</button>
+    <button onclick="logout()" class="menu-btn"><i class="fa fa-fw fa-sign-out"></i> SIGN OUT</button>
+  </div>
+
+  <p class="paging">
+    <i onclick="getJson(--page_counter)" class="fa fa-fw fa-caret-left"></i>
+    <i onclick="getJson(++page_counter)" class="fa fa-fw fa-caret-right"></i>
+  </p>
+
+  <input type="text" id="search" placeholder="Movie to Search/Title" oninput="search()"/>
+
+  <div id="container">
+    
+  </div>
+
+  <p class="paging">
+    <i onclick="getJson(--page_counter)" class="fa fa-fw fa-caret-left"></i>
+    <i onclick="getJson(++page_counter)" class="fa fa-fw fa-caret-right"></i>
+  </p>
+  <script>
+    if(localStorage.getItem("session") == false) {
+      document.location = '/index.html';
+    }
+  </script>
+  <script src="/js/session.js"></script>
+</body>
+</html>
